@@ -149,6 +149,24 @@ function animateCulturalStats() {
 }
 
 // ========================================
+// FAQ Toggle
+// ========================================
+
+function toggleFaq(element) {
+    const wasActive = element.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // If the clicked item wasn't active, open it
+    if (!wasActive) {
+        element.classList.add('active');
+    }
+}
+
+// ========================================
 // Navigation
 // ========================================
 
