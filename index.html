@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marketplace Cultural Curvelo - Conectando arte, cultura e tradição com o mundo digital. Plataforma moderna que une artistas e produtores culturais de Curvelo com consumidores de todo o Brasil.">
+    <meta name="keywords" content="marketplace, cultura, Curvelo, artesanato, arte, música, literatura, marketplace cultural, artistas locais, produtos artesanais">
+    <meta name="author" content="Marketplace Cultural Curvelo">
+    <meta name="theme-color" content="#6366F1">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ezrafchev.github.io/mercado-online-cvo/">
+    <meta property="og:title" content="Marketplace Cultural Curvelo - Arte & Cultura">
+    <meta property="og:description" content="Uma plataforma inovadora que conecta artistas, artesãos e produtores culturais de Curvelo com consumidores de todo o Brasil.">
+    <meta property="og:image" content="https://ezrafchev.github.io/mercado-online-cvo/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ezrafchev.github.io/mercado-online-cvo/">
+    <meta property="twitter:title" content="Marketplace Cultural Curvelo - Arte & Cultura">
+    <meta property="twitter:description" content="Uma plataforma inovadora que conecta artistas, artesãos e produtores culturais de Curvelo com consumidores de todo o Brasil.">
+    <meta property="twitter:image" content="https://ezrafchev.github.io/mercado-online-cvo/og-image.png">
+    
+    <title>Marketplace Cultural Curvelo - Arte & Cultura</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-icon">🎨</span>
+                    <span class="logo-text">Mercado Cultural</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#products" class="nav-link">Produtos</a>
+                <a href="#features" class="nav-link">Diferenciais</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Lançamento em breve
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Conectando</span>
+                <span class="title-line gradient-text">Arte & Cultura</span>
+                <span class="title-line">ao Mundo Digital</span>
+            </h1>
+            <p class="hero-subtitle">
+                Uma plataforma inovadora que une artistas, artesãos e produtores culturais de Curvelo com consumidores de todo o Brasil. Descubra produtos autênticos, únicos e repletos de história.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Seja um Parceiro
+                    <span class="btn-icon">→</span>
+                </button>
+                <button class="btn btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                    Saiba Mais
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Artistas Locais</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-label">Produtos Culturais</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Autêntico</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="scroll-text">Role para explorar</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Quem Somos</span>
+                <h2 class="section-title">Uma Plataforma que <span class="gradient-text">Transforma</span></h2>
+                <p class="section-description">
+                    O Marketplace Cultural Curvelo é mais do que uma simples plataforma de vendas. 
+                    É um ecossistema que valoriza a cultura local e conecta talentos com oportunidades.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card glass-card" data-animate>
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Nossa Missão</h3>
+                    <p class="card-text">
+                        Democratizar o acesso à cultura de Curvelo, criando uma ponte entre produtores culturais e consumidores, 
+                        valorizando o trabalho artesanal e promovendo a economia criativa local.
+                    </p>
+                </div>
+                
+                <div class="about-card glass-card" data-animate>
+                    <div class="card-icon">👁️</div>
+                    <h3 class="card-title">Nossa Visão</h3>
+                    <p class="card-text">
+                        Tornar-se a principal referência em marketplace cultural do Brasil, expandindo a presença de 
+                        artistas e produtores de Curvelo para mercados nacionais e internacionais.
+                    </p>
+                </div>
+                
+                <div class="about-card glass-card" data-animate>
+                    <div class="card-icon">💎</div>
+                    <h3 class="card-title">Nossos Valores</h3>
+                    <p class="card-text">
+                        Autenticidade, sustentabilidade, inovação e valorização da cultura local. 
+                        Acreditamos no poder transformador da arte e na importância de preservar tradições.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Categorias</span>
+                <h2 class="section-title">Explore Nossa <span class="gradient-text">Diversidade Cultural</span></h2>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">🎨</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Artesanato</h3>
+                        <p class="product-description">
+                            Peças únicas feitas à mão por artesãos locais, repletas de história e tradição.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">🎵</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Música</h3>
+                        <p class="product-description">
+                            Álbuns, instrumentos e experiências musicais de artistas locais.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">📚</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Literatura</h3>
+                        <p class="product-description">
+                            Obras literárias de autores locais, contando histórias de Curvelo.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">🖼️</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Arte Visual</h3>
+                        <p class="product-description">
+                            Pinturas, fotografias e obras de arte de artistas plásticos locais.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">🎭</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Teatro & Dança</h3>
+                        <p class="product-description">
+                            Ingressos e experiências culturais em apresentações locais.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-animate>
+                    <div class="product-image">
+                        <div class="product-icon">🍲</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Gastronomia</h3>
+                        <p class="product-description">
+                            Produtos gastronômicos artesanais e experiências culinárias típicas.
+                        </p>
+                        <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Diferenciais</span>
+                <h2 class="section-title">Por Que Escolher <span class="gradient-text">Nossa Plataforma</span></h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Produtos Autênticos</h3>
+                    <p class="feature-text">
+                        Cada produto é cuidadosamente selecionado e verificado para garantir autenticidade e qualidade.
+                    </p>
+                </div>
+                
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Apoio aos Artistas</h3>
+                    <p class="feature-text">
+                        Conectamos artistas diretamente com consumidores, eliminando intermediários e aumentando suas margens.
+                    </p>
+                </div>
+                
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">🌱</div>
+                    <h3 class="feature-title">Sustentabilidade</h3>
+                    <p class="feature-text">
+                        Promovemos práticas sustentáveis e responsáveis em toda a cadeia de produção e distribuição.
+                    </p>
+                </div>
+                
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Transações Seguras</h3>
+                    <p class="feature-text">
+                        Tecnologia de ponta para garantir a segurança de todas as transações e proteção de dados.
+                    </p>
+                </div>
+                
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">📦</div>
+                    <h3 class="feature-title">Entrega Ágil</h3>
+                    <p class="feature-text">
+                        Logística eficiente para entregar produtos culturais com rapidez e cuidado em todo o Brasil.
+                    </p>
+                </div>
+                
+                <div class="feature-item" data-animate>
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Atendimento Personalizado</h3>
+                    <p class="feature-text">
+                        Suporte dedicado para artistas e consumidores, com atendimento humanizado e eficiente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-background">
+            <div class="gradient-orb orb-4"></div>
+            <div class="gradient-orb orb-5"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content" data-animate>
+                <h2 class="cta-title">
+                    Faça Parte Desta <span class="gradient-text">Revolução Cultural</span>
+                </h2>
+                <p class="cta-subtitle">
+                    Seja você um artista, produtor cultural ou entusiasta da cultura de Curvelo, 
+                    junte-se a nós nesta jornada de valorização e preservação cultural.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large">
+                        Quero Ser Parceiro
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <button class="btn btn-secondary btn-large">
+                        Saiba Mais
+                    </button>
+                </div>
+                <div class="cta-info">
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <span>contato@mercadoculturalcurvelo.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <span>Curvelo, Minas Gerais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🎨</span>
+                        <span class="logo-text">Mercado Cultural</span>
+                    </div>
+                    <p class="footer-description">
+                        Conectando arte, cultura e tradição com o mundo digital.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#features">Diferenciais</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Suporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#privacy">Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Marketplace Cultural Curvelo. Todos os direitos reservados.
+                </p>
+                <p class="footer-credits">
+                    Desenvolvido com ❤️ para a cultura de Curvelo
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
