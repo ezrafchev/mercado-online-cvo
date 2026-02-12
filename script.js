@@ -2,6 +2,9 @@
 // Lightbox Gallery
 // ========================================
 
+// Fallback image for error handling
+const IMAGE_FALLBACK_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='720' viewBox='0 0 1280 720'%3E%3Crect width='1280' height='720' fill='%236366f1'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='48' fill='white'%3EImagem Cultural%3C/text%3E%3C/svg%3E`;
+
 const galleryImages = [
     {
         src: 'images/artesanato.jpg',
@@ -468,13 +471,12 @@ lazyImages.forEach(img => imageObserver.observe(img));
 // Image Error Handling
 // ========================================
 
-// Add error handling for all images
+// Add error handling for all images with fallback
 document.querySelectorAll('img').forEach(img => {
+    // Using function() instead of arrow function so 'this' refers to the image element
     img.addEventListener('error', function() {
-        // Create a fallback SVG placeholder
-        const fallbackSVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='720' viewBox='0 0 1280 720'%3E%3Crect width='1280' height='720' fill='%236366f1'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='48' fill='white'%3EImagem Cultural%3C/text%3E%3C/svg%3E`;
-        this.src = fallbackSVG;
-        console.warn('Failed to load image:', this.alt);
+        this.src = IMAGE_FALLBACK_SVG;
+        console.warn('Failed to load image:', this.src, 'Alt:', this.alt);
     });
 });
 
