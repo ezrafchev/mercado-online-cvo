@@ -49,9 +49,10 @@
             </div>
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active">Início</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
                 <a href="#about" class="nav-link">Sobre</a>
                 <a href="#products" class="nav-link">Produtos</a>
-                <a href="#features" class="nav-link">Diferenciais</a>
+                <a href="#testimonials" class="nav-link">Depoimentos</a>
                 <a href="#contact" class="nav-link">Contato</a>
             </div>
             <div class="nav-toggle" id="navToggle">
@@ -113,6 +114,151 @@
                 <div class="wheel"></div>
             </div>
             <div class="scroll-text">Role para explorar</div>
+        </div>
+    </section>
+
+    <!-- Cultural Gallery Section -->
+    <section class="cultural-gallery" id="gallery">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Nossa Cultura</span>
+                <h2 class="section-title">A Riqueza Cultural de <span class="gradient-text">Curvelo</span></h2>
+                <p class="section-description">
+                    Explore a beleza e autenticidade da cultura curvelana através de imagens que capturam a essência do nosso povo, suas tradições e seu patrimônio artístico.
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-large" data-animate onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800&h=600&fit=crop" alt="Artesanato tradicional brasileiro" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Artesanato Local</h3>
+                        <p class="gallery-description">Peças únicas produzidas por artesãos de Curvelo</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=600&fit=crop" alt="Música e cultura brasileira" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Música Tradicional</h3>
+                        <p class="gallery-description">Sons que embalam nossa cultura</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=600&h=600&fit=crop" alt="Arte e pintura tradicional" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Arte Visual</h3>
+                        <p class="gallery-description">Expressões artísticas locais</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=600&h=600&fit=crop" alt="Gastronomia mineira" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Gastronomia</h3>
+                        <p class="gallery-description">Sabores autênticos de Minas</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item gallery-wide" data-animate onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=400&fit=crop" alt="Festividades culturais" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Festividades</h3>
+                        <p class="gallery-description">Celebrações que unem nossa comunidade</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&h=600&fit=crop" alt="Patrimônio histórico" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Patrimônio Histórico</h3>
+                        <p class="gallery-description">Arquitetura e história preservadas</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(6)">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop" alt="Teatro e apresentações" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Artes Cênicas</h3>
+                        <p class="gallery-description">Teatro e dança tradicional</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-animate onclick="openLightbox(7)">
+                    <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=600&h=600&fit=crop" alt="Literatura e poesia" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Literatura</h3>
+                        <p class="gallery-description">Histórias e poesias locais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</span>
+        <span class="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Imagem cultural">
+            <div id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Cultural Heritage Section -->
+    <section class="heritage" id="heritage">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Patrimônio Cultural</span>
+                <h2 class="section-title">Conheça <span class="gradient-text">Curvelo</span></h2>
+                <p class="section-description">
+                    Uma cidade com rica história e tradições culturais que resistem ao tempo
+                </p>
+            </div>
+            
+            <div class="heritage-content">
+                <div class="heritage-text" data-animate>
+                    <h3 class="heritage-subtitle">História e Tradição</h3>
+                    <p class="heritage-paragraph">
+                        Curvelo, localizada no coração de Minas Gerais, é uma cidade que respira cultura e tradição. 
+                        Com uma população acolhedora e talentosa, a cidade se destaca pela preservação de suas raízes 
+                        culturais enquanto abraça a modernidade.
+                    </p>
+                    <p class="heritage-paragraph">
+                        Nossos artesãos mantêm vivas técnicas ancestrais, transformando matérias-primas locais em 
+                        verdadeiras obras de arte. A música, a dança e as festividades tradicionais fazem parte do 
+                        cotidiano curvelano, celebrando nossa identidade cultural única.
+                    </p>
+                    <div class="heritage-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎭</span>
+                            <div>
+                                <h4>Manifestações Culturais</h4>
+                                <p>Festivais, feiras e eventos durante todo o ano</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🏛️</span>
+                            <div>
+                                <h4>Patrimônio Preservado</h4>
+                                <p>Arquitetura e locais históricos mantidos</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">👨‍🎨</span>
+                            <div>
+                                <h4>Artistas Locais</h4>
+                                <p>Centenas de talentos em diversas modalidades</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="heritage-image" data-animate>
+                    <img src="https://images.unsplash.com/photo-1548690596-81085a959043?w=700&h=900&fit=crop" alt="Cultura brasileira" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -243,6 +389,114 @@
                             Produtos gastronômicos artesanais e experiências culinárias típicas.
                         </p>
                         <div class="product-tag">Em breve</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-badge">Depoimentos</span>
+                <h2 class="section-title">Histórias de <span class="gradient-text">Sucesso</span></h2>
+                <p class="section-description">
+                    Conheça as experiências de artistas e produtores culturais que fazem parte da nossa comunidade
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-animate>
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces" alt="Maria Silva">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Como artesã, encontrei no Marketplace Cultural uma oportunidade única de compartilhar 
+                            meu trabalho com pessoas de todo o Brasil. A plataforma valoriza nossa arte e nos 
+                            conecta diretamente com quem aprecia o artesanato autêntico."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Maria Silva</strong>
+                            <span>Artesã - Cerâmica e Tecelagem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-animate>
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="João Santos">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Sou músico há 20 anos e sempre sonhei em levar minha música além das fronteiras de 
+                            Curvelo. Esta plataforma me deu essa oportunidade, permitindo que eu venda meus álbuns 
+                            e ofereça apresentações online."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>João Santos</strong>
+                            <span>Músico e Compositor</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-animate>
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces" alt="Ana Ferreira">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Como pintora, sempre busquei formas de expor meu trabalho. O Marketplace Cultural não 
+                            só oferece uma vitrine para minhas obras, mas também conta a história por trás de cada 
+                            pintura, conectando compradores com a alma da arte."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Ana Ferreira</strong>
+                            <span>Artista Plástica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Stats Section -->
+    <section class="cultural-stats">
+        <div class="stats-background">
+            <div class="gradient-orb orb-6"></div>
+            <div class="gradient-orb orb-7"></div>
+        </div>
+        <div class="container">
+            <div class="stats-content" data-animate>
+                <h2 class="stats-title">Curvelo em Números</h2>
+                <div class="stats-grid">
+                    <div class="stat-box" data-animate>
+                        <div class="stat-icon">🎨</div>
+                        <div class="stat-value" data-count="500">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-description">Artistas e Artesãos</div>
+                    </div>
+                    <div class="stat-box" data-animate>
+                        <div class="stat-icon">🏛️</div>
+                        <div class="stat-value" data-count="15">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-description">Eventos Culturais/Ano</div>
+                    </div>
+                    <div class="stat-box" data-animate>
+                        <div class="stat-icon">🎭</div>
+                        <div class="stat-value" data-count="30">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-description">Grupos Culturais Ativos</div>
+                    </div>
+                    <div class="stat-box" data-animate>
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-value" data-count="2000">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-description">Produtos Culturais</div>
                     </div>
                 </div>
             </div>
