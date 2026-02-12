@@ -40,6 +40,9 @@ const galleryImages = [
 let currentLightboxIndex = 0;
 
 function openLightbox(index) {
+    // Validate index
+    if (index < 0 || index >= galleryImages.length) return;
+    
     currentLightboxIndex = index;
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
@@ -104,12 +107,10 @@ document.getElementById('lightbox')?.addEventListener('click', (e) => {
 // ========================================
 
 let statsAnimated = false;
+const statsSection = document.querySelector('.cultural-stats');
 
 function animateCulturalStats() {
-    if (statsAnimated) return;
-    
-    const statsSection = document.querySelector('.cultural-stats');
-    if (!statsSection) return;
+    if (statsAnimated || !statsSection) return;
     
     const rect = statsSection.getBoundingClientRect();
     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
