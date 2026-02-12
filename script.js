@@ -1,5 +1,174 @@
 // ========================================
-// Navigation Functionality
+// Lightbox Gallery
+// ========================================
+
+const galleryImages = [
+    {
+        src: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=1200&h=800&fit=crop',
+        caption: 'Artesanato Local - Peças únicas produzidas por artesãos de Curvelo'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop',
+        caption: 'Música Tradicional - Sons que embalam nossa cultura'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=1200&h=800&fit=crop',
+        caption: 'Arte Visual - Expressões artísticas locais'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=1200&h=800&fit=crop',
+        caption: 'Gastronomia - Sabores autênticos de Minas'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200&h=800&fit=crop',
+        caption: 'Festividades - Celebrações que unem nossa comunidade'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1200&h=800&fit=crop',
+        caption: 'Patrimônio Histórico - Arquitetura e história preservadas'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop',
+        caption: 'Artes Cênicas - Teatro e dança tradicional'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=1200&h=800&fit=crop',
+        caption: 'Literatura - Histórias e poesias locais'
+    }
+];
+
+let currentLightboxIndex = 0;
+
+function openLightbox(index) {
+    // Validate index
+    if (index < 0 || index >= galleryImages.length) return;
+    
+    currentLightboxIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImage.src = galleryImages[index].src;
+    lightboxCaption.textContent = galleryImages[index].caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function changeLightboxImage(direction) {
+    currentLightboxIndex += direction;
+    
+    if (currentLightboxIndex < 0) {
+        currentLightboxIndex = galleryImages.length - 1;
+    } else if (currentLightboxIndex >= galleryImages.length) {
+        currentLightboxIndex = 0;
+    }
+    
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImage.style.opacity = '0';
+    
+    setTimeout(() => {
+        lightboxImage.src = galleryImages[currentLightboxIndex].src;
+        lightboxCaption.textContent = galleryImages[currentLightboxIndex].caption;
+        lightboxImage.style.opacity = '1';
+    }, 200);
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            changeLightboxImage(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeLightboxImage(1);
+        }
+    }
+});
+
+// Close lightbox when clicking outside the image
+document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+        closeLightbox();
+    }
+});
+
+// ========================================
+// Cultural Stats Counter Animation
+// ========================================
+
+let statsAnimated = false;
+const statsSection = document.querySelector('.cultural-stats');
+
+function animateCulturalStats() {
+    if (statsAnimated || !statsSection) return;
+    
+    const rect = statsSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible) {
+        statsAnimated = true;
+        
+        const statBoxes = document.querySelectorAll('.stat-box');
+        
+        statBoxes.forEach((box, index) => {
+            setTimeout(() => {
+                const valueElement = box.querySelector('.stat-value');
+                const targetValue = parseInt(valueElement.getAttribute('data-count'));
+                
+                if (isNaN(targetValue)) return;
+                
+                const duration = 2000;
+                const steps = 60;
+                const increment = targetValue / steps;
+                let current = 0;
+                let step = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    step++;
+                    
+                    if (step >= steps) {
+                        valueElement.textContent = targetValue;
+                        clearInterval(timer);
+                    } else {
+                        valueElement.textContent = Math.floor(current);
+                    }
+                }, duration / steps);
+            }, index * 150);
+        });
+    }
+}
+
+// ========================================
+// FAQ Toggle
+// ========================================
+
+function toggleFaq(element) {
+    const wasActive = element.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // If the clicked item wasn't active, open it
+    if (!wasActive) {
+        element.classList.add('active');
+    }
+}
+
+// ========================================
+// Navigation
 // ========================================
 
 // Toggle mobile menu
@@ -343,6 +512,7 @@ function handleScroll() {
             updateNavbar();
             parallaxOrbs();
             animateCounters();
+            animateCulturalStats();
             updateScrollProgress();
             ticking = false;
         });
@@ -365,6 +535,7 @@ window.addEventListener('resize', () => {
 updateActiveLink();
 updateNavbar();
 animateCounters();
+animateCulturalStats();
 updateScrollProgress();
 
 // ========================================
