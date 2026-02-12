@@ -16,7 +16,7 @@ const galleryImages = [
         caption: 'Arte Visual - Expressões artísticas locais'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2019/01/29/18/05/burger-3962996_1280.jpg',
+        src: 'https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg',
         caption: 'Gastronomia - Sabores autênticos de Minas'
     },
     {
