@@ -4,35 +4,35 @@
 
 const galleryImages = [
     {
-        src: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/art-1867154_1280.jpg',
         caption: 'Artesanato Local - Peças únicas produzidas por artesãos de Curvelo'
     },
     {
-        src: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2016/11/22/19/08/band-1850801_1280.jpg',
         caption: 'Música Tradicional - Sons que embalam nossa cultura'
     },
     {
-        src: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2017/08/01/00/38/man-2563447_1280.jpg',
         caption: 'Arte Visual - Expressões artísticas locais'
     },
     {
-        src: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2019/01/29/18/05/burger-3962996_1280.jpg',
         caption: 'Gastronomia - Sabores autênticos de Minas'
     },
     {
-        src: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2016/11/22/19/25/crowd-1850119_1280.jpg',
         caption: 'Festividades - Celebrações que unem nossa comunidade'
     },
     {
-        src: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/architecture-1867187_1280.jpg',
         caption: 'Patrimônio Histórico - Arquitetura e história preservadas'
     },
     {
-        src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2016/11/23/15/32/audience-1853662_1280.jpg',
         caption: 'Artes Cênicas - Teatro e dança tradicional'
     },
     {
-        src: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=1200&h=800&fit=crop',
+        src: 'https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg',
         caption: 'Literatura - Histórias e poesias locais'
     }
 ];
