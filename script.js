@@ -63,12 +63,15 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
+let animationDelay = 0;
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            const currentDelay = animationDelay;
             setTimeout(() => {
                 entry.target.classList.add('animated');
-            }, index * 100);
+            }, currentDelay);
+            animationDelay += 100;
             observer.unobserve(entry.target);
         }
     });
@@ -120,6 +123,12 @@ function parallaxOrbs() {
 // Mouse Move Effect (Subtle Parallax)
 // ========================================
 
+// Parallax configuration constants
+const PARALLAX_BASE_SPEED = 0.5;
+const PARALLAX_SPEED_INCREMENT = 0.2;
+const PARALLAX_CONTENT_MULTIPLIER = 10;
+const PARALLAX_ORB_MULTIPLIER = 20;
+
 const hero = document.querySelector('.hero');
 const heroContent = document.querySelector('.hero-content');
 
@@ -131,11 +140,11 @@ if (hero && heroContent) {
         const xPercent = (clientX / innerWidth - 0.5) * 2;
         const yPercent = (clientY / innerHeight - 0.5) * 2;
         
-        heroContent.style.transform = `translate(${xPercent * 10}px, ${yPercent * 10}px)`;
+        heroContent.style.transform = `translate(${xPercent * PARALLAX_CONTENT_MULTIPLIER}px, ${yPercent * PARALLAX_CONTENT_MULTIPLIER}px)`;
         
         orbs.forEach((orb, index) => {
-            const speed = 0.5 + (index * 0.2);
-            orb.style.transform = `translate(${xPercent * 20 * speed}px, ${yPercent * 20 * speed}px)`;
+            const speed = PARALLAX_BASE_SPEED + (index * PARALLAX_SPEED_INCREMENT);
+            orb.style.transform = `translate(${xPercent * PARALLAX_ORB_MULTIPLIER * speed}px, ${yPercent * PARALLAX_ORB_MULTIPLIER * speed}px)`;
         });
     });
     
@@ -389,9 +398,11 @@ document.addEventListener('mousedown', () => {
 
 // Add focus styles for keyboard users
 const focusStyle = document.createElement('style');
+const primaryColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--primary-rgb').trim() || '99, 102, 241';
 focusStyle.textContent = `
     .keyboard-user *:focus {
-        outline: 2px solid rgb(99, 102, 241);
+        outline: 2px solid rgb(${primaryColor});
         outline-offset: 2px;
     }
 `;

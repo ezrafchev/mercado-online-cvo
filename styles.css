@@ -1108,9 +1108,18 @@ section {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Completely disable specific animations */
+    .gradient-orb,
+    .badge-dot,
+    .wheel,
+    .hero-badge {
+        animation: none !important;
     }
 }
 
