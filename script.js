@@ -4,35 +4,35 @@
 
 const galleryImages = [
     {
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/art-1867154_1280.jpg',
+        src: 'images/artesanato.jpg',
         caption: 'Artesanato Local - Peças únicas produzidas por artesãos de Curvelo'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2016/11/22/19/08/band-1850801_1280.jpg',
+        src: 'images/musica.jpg',
         caption: 'Música Tradicional - Sons que embalam nossa cultura'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2017/08/01/00/38/man-2563447_1280.jpg',
+        src: 'images/arte.jpg',
         caption: 'Arte Visual - Expressões artísticas locais'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg',
+        src: 'images/gastronomia.jpg',
         caption: 'Gastronomia - Sabores autênticos de Minas'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2016/11/22/19/25/crowd-1850119_1280.jpg',
+        src: 'images/festividades.jpg',
         caption: 'Festividades - Celebrações que unem nossa comunidade'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/architecture-1867187_1280.jpg',
+        src: 'images/patrimonio.jpg',
         caption: 'Patrimônio Histórico - Arquitetura e história preservadas'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2016/11/23/15/32/audience-1853662_1280.jpg',
+        src: 'images/teatro.jpg',
         caption: 'Artes Cênicas - Teatro e dança tradicional'
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg',
+        src: 'images/literatura.jpg',
         caption: 'Literatura - Histórias e poesias locais'
     }
 ];
