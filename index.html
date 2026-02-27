@@ -56,6 +56,14 @@
                 <a href="#testimonials" class="nav-link">Depoimentos</a>
                 <a href="#contact" class="nav-link">Contato</a>
             </div>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" onclick="openCart()" aria-label="Carrinho de compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+                </button>
+            </div>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -310,94 +318,26 @@
     <section class="products" id="products">
         <div class="container">
             <div class="section-header" data-animate>
-                <span class="section-badge">Categorias</span>
-                <h2 class="section-title">Explore Nossa <span class="gradient-text">Diversidade Cultural</span></h2>
+                <span class="section-badge">Marketplace</span>
+                <h2 class="section-title">Explore Nossa <span class="gradient-text">Coleção Cultural</span></h2>
+                <p class="section-description">
+                    Produtos autênticos criados por artistas e artesãos de Curvelo — compre direto do criador.
+                </p>
             </div>
-            
-            <div class="products-grid">
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/artesanato.jpg" alt="Artesanato de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">🎨</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Artesanato</h3>
-                        <p class="product-description">
-                            Peças únicas feitas à mão por artesãos locais, repletas de história e tradição.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/musica.jpg" alt="Música de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">🎵</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Música</h3>
-                        <p class="product-description">
-                            Álbuns, instrumentos e experiências musicais de artistas locais.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/literatura.jpg" alt="Literatura de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">📚</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Literatura</h3>
-                        <p class="product-description">
-                            Obras literárias de autores locais, contando histórias de Curvelo.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/arte.jpg" alt="Arte visual de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">🖼️</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Arte Visual</h3>
-                        <p class="product-description">
-                            Pinturas, fotografias e obras de arte de artistas plásticos locais.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/teatro.jpg" alt="Teatro e dança de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">🎭</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Teatro & Dança</h3>
-                        <p class="product-description">
-                            Ingressos e experiências culturais em apresentações locais.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-animate>
-                    <div class="product-image">
-                        <img src="images/gastronomia.jpg" alt="Gastronomia de Curvelo - MG" loading="lazy">
-                        <div class="product-icon">🍲</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Gastronomia</h3>
-                        <p class="product-description">
-                            Produtos gastronômicos artesanais e experiências culinárias típicas.
-                        </p>
-                        <div class="product-tag">Em breve</div>
-                    </div>
-                </div>
+
+            <div class="product-filters" data-animate>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="artesanato">🎨 Artesanato</button>
+                <button class="filter-btn" data-filter="arte">🖼️ Arte Visual</button>
+                <button class="filter-btn" data-filter="musica">🎵 Música</button>
+                <button class="filter-btn" data-filter="literatura">📚 Literatura</button>
+                <button class="filter-btn" data-filter="gastronomia">🍲 Gastronomia</button>
+                <button class="filter-btn" data-filter="teatro">🎭 Teatro</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Dynamically rendered by JavaScript -->
+            </div>
             </div>
         </div>
     </section>
@@ -688,14 +628,57 @@
                     Seja você um artista, produtor cultural ou entusiasta da cultura de Curvelo, 
                     junte-se a nós nesta jornada de valorização e preservação cultural.
                 </p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-large">
-                        Quero Ser Parceiro
-                        <span class="btn-icon">→</span>
-                    </button>
-                    <button class="btn btn-secondary btn-large">
-                        Saiba Mais
-                    </button>
+                <div class="cta-form-wrapper">
+                    <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="formName">Nome completo</label>
+                                <input class="form-input" type="text" id="formName" name="name" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="formEmail">E-mail</label>
+                                <input class="form-input" type="email" id="formEmail" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="formPhone">WhatsApp / Telefone</label>
+                                <input class="form-input" type="tel" id="formPhone" name="phone" placeholder="(38) 9 9999-9999">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="formCategory">Você é</label>
+                                <select class="form-input form-select" id="formCategory" name="category" required>
+                                    <option value="" disabled selected>Selecione seu perfil</option>
+                                    <option value="artesao">Artesão</option>
+                                    <option value="artista">Artista Visual</option>
+                                    <option value="musico">Músico</option>
+                                    <option value="escritor">Escritor / Poeta</option>
+                                    <option value="gastronomia">Produtor Gastronômico</option>
+                                    <option value="teatro">Grupo de Teatro / Dança</option>
+                                    <option value="comprador">Comprador / Colecionador</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="formMessage">Mensagem</label>
+                            <textarea class="form-input form-textarea" id="formMessage" name="message" placeholder="Conte-nos sobre você e o que deseja compartilhar com Curvelo..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full form-submit" id="formSubmitBtn">
+                            <span class="btn-text">Enviar Mensagem</span>
+                            <span class="btn-loading" style="display:none">
+                                <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="32"><animate attributeName="stroke-dashoffset" dur="0.8s" repeatCount="indefinite" values="32;0"/></circle></svg>
+                                Enviando...
+                            </span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </form>
+                    <div class="form-success" id="formSuccess" style="display:none">
+                        <div class="success-icon">✅</div>
+                        <h3>Mensagem enviada!</h3>
+                        <p>Obrigado pelo interesse. Nossa equipe entrará em contato em até 48 horas.</p>
+                        <button class="btn btn-secondary" onclick="resetContactForm()">Enviar outra mensagem</button>
+                    </div>
                 </div>
                 <div class="cta-info">
                     <div class="info-item">
@@ -777,6 +760,103 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- Cart Drawer -->
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+        <div class="cart-header">
+            <h2 class="cart-title">🛒 Carrinho</h2>
+            <button class="cart-close-btn" onclick="closeCart()" aria-label="Fechar carrinho">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty-state" id="cartEmpty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Seu carrinho está vazio</p>
+                <span>Adicione produtos para começar sua compra</span>
+                <button class="btn btn-primary" onclick="closeCart(); document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="margin-top:1.5rem">
+                    Explorar Produtos
+                </button>
+            </div>
+            <ul class="cart-items-list" id="cartItemsList"></ul>
+        </div>
+        <div class="cart-footer" id="cartFooterSection" style="display:none">
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <strong id="cartTotalAmount">R$ 0,00</strong>
+            </div>
+            <p class="cart-shipping-note">🚚 Frete calculado no checkout</p>
+            <button class="btn btn-primary btn-full" onclick="proceedToCheckout()">
+                Finalizar Compra <span>→</span>
+            </button>
+            <button class="btn btn-secondary btn-full" onclick="closeCart()">
+                Continuar Comprando
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout" style="display:none">
+        <div class="modal-header">
+            <h2>Finalizar Compra</h2>
+            <button class="cart-close-btn" onclick="closeCheckout()" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body" id="checkoutBody">
+            <div class="checkout-success" id="checkoutSuccess" style="display:none">
+                <div class="success-icon" style="font-size:4rem;margin-bottom:1rem">🎉</div>
+                <h3>Pedido Realizado!</h3>
+                <p>Obrigado pela sua compra! Em breve nossa equipe entrará em contato para confirmar os detalhes e organizar o envio.</p>
+                <p style="margin-top:0.5rem;font-size:0.875rem;opacity:0.7">Um e-mail de confirmação será enviado em breve.</p>
+                <button class="btn btn-primary" onclick="closeCheckout(); clearCart()" style="margin-top:1.5rem">Continuar Comprando</button>
+            </div>
+            <form class="checkout-form" id="checkoutForm" onsubmit="completeCheckout(event)" style="display:block">
+                <div class="checkout-summary" id="checkoutSummary"></div>
+                <div class="form-group">
+                    <label class="form-label" for="checkoutName">Nome completo *</label>
+                    <input class="form-input" type="text" id="checkoutName" required placeholder="Seu nome completo">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="checkoutEmail">E-mail *</label>
+                        <input class="form-input" type="email" id="checkoutEmail" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkoutPhone">WhatsApp *</label>
+                        <input class="form-input" type="tel" id="checkoutPhone" required placeholder="(38) 9 9999-9999">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="checkoutAddress">Endereço de entrega *</label>
+                    <input class="form-input" type="text" id="checkoutAddress" required placeholder="Rua, número, bairro, cidade - estado">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="checkoutPayment">Forma de pagamento *</label>
+                    <select class="form-input form-select" id="checkoutPayment" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="pix">PIX (5% desconto)</option>
+                        <option value="cartao">Cartão de Crédito (até 12x)</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top:1rem">
+                    Confirmar Pedido ✓
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
     <script src="script.js"></script>
 </body>

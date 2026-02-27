@@ -1,4 +1,156 @@
 // ========================================
+// Products Catalog Data
+// ========================================
+
+const PRODUCTS = [
+    {
+        id: 1,
+        name: 'Vaso Cerâmico Tradicional',
+        artist: 'Maria Silva',
+        category: 'artesanato',
+        categoryLabel: 'Artesanato',
+        price: 85.00,
+        image: 'images/artesanato.jpg',
+        description: 'Peça única em cerâmica produzida à mão com técnica ancestral mineira.',
+        rating: 5,
+        reviews: 24
+    },
+    {
+        id: 2,
+        name: 'Cesto de Vime Artesanal',
+        artist: 'Carmem Lima',
+        category: 'artesanato',
+        categoryLabel: 'Artesanato',
+        price: 65.00,
+        image: 'images/artesanato.jpg',
+        description: 'Cesto tecido à mão com fibras naturais locais, resistente e belo.',
+        rating: 5,
+        reviews: 17
+    },
+    {
+        id: 3,
+        name: 'Aquarela — Paisagem Curvelana',
+        artist: 'Ana Ferreira',
+        category: 'arte',
+        categoryLabel: 'Arte Visual',
+        price: 250.00,
+        image: 'images/arte.jpg',
+        description: 'Aquarela original retratando a beleza das paisagens de Curvelo.',
+        rating: 5,
+        reviews: 8
+    },
+    {
+        id: 4,
+        name: 'Tela a Óleo — Festa do Rosário',
+        artist: 'Ana Ferreira',
+        category: 'arte',
+        categoryLabel: 'Arte Visual',
+        price: 380.00,
+        originalPrice: 450.00,
+        image: 'images/arte.jpg',
+        description: 'Pintura a óleo retratando a tradicional Festa do Rosário de Curvelo.',
+        rating: 5,
+        reviews: 12
+    },
+    {
+        id: 5,
+        name: 'Álbum — Sons do Sertão',
+        artist: 'João Santos',
+        category: 'musica',
+        categoryLabel: 'Música',
+        price: 35.00,
+        image: 'images/musica.jpg',
+        description: 'Álbum com 12 faixas de música sertaneja raiz gravado em estúdio local.',
+        rating: 4,
+        reviews: 31
+    },
+    {
+        id: 6,
+        name: 'CD Viola Caipira — Raízes',
+        artist: 'Grupo Raízes',
+        category: 'musica',
+        categoryLabel: 'Música',
+        price: 30.00,
+        image: 'images/musica.jpg',
+        description: 'Música instrumental de viola caipira, preservando a tradição mineira.',
+        rating: 5,
+        reviews: 19
+    },
+    {
+        id: 7,
+        name: 'Poemas de Curvelo',
+        artist: 'Coletivo Literário',
+        category: 'literatura',
+        categoryLabel: 'Literatura',
+        price: 28.00,
+        image: 'images/literatura.jpg',
+        description: 'Antologia de poemas escritos por autores locais sobre a cidade.',
+        rating: 5,
+        reviews: 14
+    },
+    {
+        id: 8,
+        name: 'Histórias do Cerrado',
+        artist: 'Clube do Livro CVO',
+        category: 'literatura',
+        categoryLabel: 'Literatura',
+        price: 32.00,
+        image: 'images/literatura.jpg',
+        description: 'Contos e crônicas sobre a vida, natureza e gente do cerrado mineiro.',
+        rating: 4,
+        reviews: 22
+    },
+    {
+        id: 9,
+        name: 'Kit Doces Mineiros',
+        artist: 'Dona Geralda',
+        category: 'gastronomia',
+        categoryLabel: 'Gastronomia',
+        price: 45.00,
+        image: 'images/gastronomia.jpg',
+        description: 'Kit com 6 tipos de doces tradicionais mineiros feitos de forma artesanal.',
+        rating: 5,
+        reviews: 43
+    },
+    {
+        id: 10,
+        name: 'Queijo Artesanal Curado',
+        artist: 'Fazenda Boa Vista',
+        category: 'gastronomia',
+        categoryLabel: 'Gastronomia',
+        price: 38.00,
+        image: 'images/gastronomia.jpg',
+        description: 'Queijo minas artesanal curado por 60 dias, sabor e textura únicos.',
+        rating: 5,
+        reviews: 38
+    },
+    {
+        id: 11,
+        name: 'Ingresso — Espetáculo Folclore',
+        artist: 'Grupo Teatral CVO',
+        category: 'teatro',
+        categoryLabel: 'Teatro',
+        price: 40.00,
+        image: 'images/teatro.jpg',
+        description: 'Espetáculo de dança e teatro baseado em folclore e tradições mineiras.',
+        rating: 5,
+        reviews: 28
+    },
+    {
+        id: 12,
+        name: 'Workshop de Teatro',
+        artist: 'Teatro Escola Curvelo',
+        category: 'teatro',
+        categoryLabel: 'Teatro',
+        price: 80.00,
+        image: 'images/teatro.jpg',
+        description: 'Workshop intensivo de 8 horas com atores profissionais locais.',
+        rating: 4,
+        reviews: 9
+    }
+];
+
+// ========================================
 // Lightbox Gallery
 // ========================================
 
@@ -716,3 +868,439 @@ console.log(
     '%cInteressado em ser nosso parceiro? Entre em contato!',
     'font-size: 12px; color: #666;'
 );
+
+// ========================================
+// Security Utilities
+// ========================================
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+}
+
+function sanitizeInput(value) {
+    if (value == null) return '';
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;');
+}
+
+// ========================================
+// Cart State Management
+// ========================================
+
+let cart = JSON.parse(localStorage.getItem('mcc_cart') || '[]');
+let wishlist = JSON.parse(localStorage.getItem('mcc_wishlist') || '[]');
+
+function saveCart() {
+    localStorage.setItem('mcc_cart', JSON.stringify(cart));
+    updateCartBadge();
+    renderCartItems();
+}
+
+function saveWishlist() {
+    localStorage.setItem('mcc_wishlist', JSON.stringify(wishlist));
+}
+
+function updateCartBadge() {
+    const badge = document.getElementById('cartBadge');
+    if (!badge) return;
+    const total = cart.reduce((sum, item) => sum + item.qty, 0);
+    badge.textContent = total;
+    badge.style.display = total > 0 ? 'flex' : 'none';
+}
+
+// ========================================
+// Cart Drawer Functions
+// ========================================
+
+function openCart() {
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    renderCartItems();
+}
+
+function closeCart() {
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function addToCart(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+    const existing = cart.find(item => item.id === productId);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ id: productId, qty: 1 });
+    }
+    saveCart();
+    showToast(`🛒 "${product.name}" adicionado ao carrinho`, 'success');
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    showToast('Item removido do carrinho', 'info');
+}
+
+function updateQty(productId, delta) {
+    const item = cart.find(i => i.id === productId);
+    if (!item) return;
+    item.qty = Math.max(1, item.qty + delta);
+    saveCart();
+}
+
+function clearCart() {
+    cart = [];
+    saveCart();
+}
+
+function getCartTotal() {
+    return cart.reduce((sum, item) => {
+        const product = PRODUCTS.find(p => p.id === item.id);
+        return sum + (product ? product.price * item.qty : 0);
+    }, 0);
+}
+
+function formatCurrency(value) {
+    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+function renderCartItems() {
+    const listEl = document.getElementById('cartItemsList');
+    const emptyEl = document.getElementById('cartEmpty');
+    const footerEl = document.getElementById('cartFooterSection');
+    const totalEl = document.getElementById('cartTotalAmount');
+    if (!listEl) return;
+
+    if (cart.length === 0) {
+        listEl.innerHTML = '';
+        emptyEl.style.display = 'flex';
+        footerEl.style.display = 'none';
+        listEl.style.display = 'none';
+        return;
+    }
+
+    emptyEl.style.display = 'none';
+    footerEl.style.display = 'flex';
+    listEl.style.display = 'flex';
+
+    listEl.innerHTML = cart.map(item => {
+        const product = PRODUCTS.find(p => p.id === item.id);
+        if (!product) return '';
+        const eName = escapeHtml(product.name);
+        const eArtist = escapeHtml(product.artist);
+        const eImage = escapeHtml(product.image);
+        return `
+        <li class="cart-item" data-id="${product.id}">
+            <div class="cart-item-image">
+                <img src="${eImage}" alt="${eName}" loading="lazy">
+            </div>
+            <div class="cart-item-info">
+                <div class="cart-item-name" title="${eName}">${eName}</div>
+                <div class="cart-item-artist">${eArtist}</div>
+                <div class="cart-item-price">${formatCurrency(product.price)}</div>
+            </div>
+            <div class="cart-item-controls">
+                <div class="quantity-controls">
+                    <button class="qty-btn" onclick="updateQty(${product.id}, -1)" aria-label="Diminuir">−</button>
+                    <span class="qty-value">${item.qty}</span>
+                    <button class="qty-btn" onclick="updateQty(${product.id}, 1)" aria-label="Aumentar">+</button>
+                </div>
+                <button class="remove-item-btn" onclick="removeFromCart(${product.id})" aria-label="Remover item" title="Remover">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/>
+                    </svg>
+                </button>
+            </div>
+        </li>`;
+    }).join('');
+
+    totalEl.textContent = formatCurrency(getCartTotal());
+}
+
+// ========================================
+// Wishlist Functions
+// ========================================
+
+function toggleWishlist(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+    const idx = wishlist.indexOf(productId);
+    if (idx === -1) {
+        wishlist.push(productId);
+        showToast(`❤️ "${product.name}" adicionado à lista de desejos`, 'info');
+    } else {
+        wishlist.splice(idx, 1);
+        showToast(`"${product.name}" removido da lista de desejos`, 'info');
+    }
+    saveWishlist();
+    // Update all wishlist buttons for this product
+    document.querySelectorAll(`.product-wishlist-btn[data-id="${productId}"]`).forEach(btn => {
+        const isWishlisted = wishlist.includes(productId);
+        btn.textContent = isWishlisted ? '❤️' : '🤍';
+        btn.classList.toggle('active', isWishlisted);
+        btn.setAttribute('aria-label', isWishlisted ? 'Remover da lista de desejos' : 'Adicionar à lista de desejos');
+    });
+}
+
+// ========================================
+// Product Rendering & Filtering
+// ========================================
+
+let activeFilter = 'all';
+
+function renderProducts(filter) {
+    activeFilter = filter || 'all';
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+
+    const filtered = activeFilter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeFilter);
+
+    grid.innerHTML = filtered.map(product => {
+        const isWishlisted = wishlist.includes(product.id);
+        const stars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
+        const eName = escapeHtml(product.name);
+        const eArtist = escapeHtml(product.artist);
+        const eDesc = escapeHtml(product.description);
+        const eCategoryLabel = escapeHtml(product.categoryLabel);
+        const eImage = escapeHtml(product.image);
+        const originalPriceHtml = product.originalPrice
+            ? `<span class="product-price-original">${formatCurrency(product.originalPrice)}</span>`
+            : '';
+        return `
+        <article class="product-card filter-animate-in" data-category="${product.category}" data-id="${product.id}">
+            <div class="product-image">
+                <img src="${eImage}" alt="${eName}" loading="lazy">
+                <span class="product-category-badge">${eCategoryLabel}</span>
+                <button class="product-wishlist-btn ${isWishlisted ? 'active' : ''}"
+                    data-id="${product.id}"
+                    onclick="toggleWishlist(${product.id})"
+                    aria-label="${isWishlisted ? 'Remover da lista de desejos' : 'Adicionar à lista de desejos'}">${isWishlisted ? '❤️' : '🤍'}</button>
+            </div>
+            <div class="product-content">
+                <div class="product-rating">
+                    <span class="stars" aria-label="${product.rating} estrelas">${stars}</span>
+                    <span class="count">(${product.reviews})</span>
+                </div>
+                <h3 class="product-title">${eName}</h3>
+                <p class="product-artist">por ${eArtist}</p>
+                <p class="product-description">${eDesc}</p>
+                <div class="product-footer">
+                    <div>
+                        ${originalPriceHtml}
+                        <span class="product-price">${formatCurrency(product.price)}</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(${product.id})" aria-label="Adicionar ${eName} ao carrinho">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>`;
+    }).join('');
+}
+
+function initProductFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderProducts(btn.dataset.filter);
+        });
+    });
+    renderProducts('all');
+}
+
+// ========================================
+// Toast Notification System
+// ========================================
+
+function showToast(message, type = 'success', duration = 3500) {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+
+    const icons = {
+        success: '✅',
+        error: '❌',
+        info: 'ℹ️',
+        warning: '⚠️'
+    };
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <span class="toast-icon">${icons[type] || icons.success}</span>
+        <span class="toast-message">${message}</span>
+    `;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('removing');
+        setTimeout(() => toast.remove(), 300);
+    }, duration);
+}
+
+// ========================================
+// Contact Form Handler
+// ========================================
+
+function submitContactForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formSubmitBtn');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoading = btn.querySelector('.btn-loading');
+    const btnIcon = btn.querySelector('.btn-icon');
+
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-flex';
+    btnIcon.style.display = 'none';
+    btn.disabled = true;
+
+    // Simulate form submission (2s delay)
+    const formData = {
+        name: sanitizeInput(document.getElementById('formName').value),
+        email: sanitizeInput(document.getElementById('formEmail').value),
+        phone: sanitizeInput(document.getElementById('formPhone').value),
+        category: sanitizeInput(document.getElementById('formCategory').value),
+        message: sanitizeInput(document.getElementById('formMessage').value),
+        submittedAt: new Date().toISOString()
+    };
+
+    // Store in localStorage for demo
+    const submissions = JSON.parse(localStorage.getItem('mcc_contacts') || '[]');
+    submissions.push(formData);
+    localStorage.setItem('mcc_contacts', JSON.stringify(submissions));
+
+    setTimeout(() => {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'flex';
+        showToast('Mensagem enviada com sucesso! 🎉', 'success');
+    }, 2000);
+}
+
+function resetContactForm() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('contactForm').style.display = 'flex';
+    document.getElementById('formSuccess').style.display = 'none';
+    const btn = document.getElementById('formSubmitBtn');
+    if (btn) {
+        btn.querySelector('.btn-text').style.display = 'inline';
+        btn.querySelector('.btn-loading').style.display = 'none';
+        btn.querySelector('.btn-icon').style.display = 'inline';
+        btn.disabled = false;
+    }
+}
+
+// ========================================
+// Checkout Functions
+// ========================================
+
+function proceedToCheckout() {
+    if (cart.length === 0) {
+        showToast('Seu carrinho está vazio', 'warning');
+        return;
+    }
+    closeCart();
+    buildCheckoutSummary();
+    const modal = document.getElementById('checkoutModal');
+    const overlay = document.getElementById('checkoutOverlay');
+    modal.style.display = 'block';
+    document.getElementById('checkoutOverlay').classList.add('active');
+    requestAnimationFrame(() => {
+        modal.classList.add('open');
+        overlay.classList.add('active');
+    });
+    document.body.style.overflow = 'hidden';
+    // Reset form state
+    document.getElementById('checkoutForm').style.display = 'block';
+    document.getElementById('checkoutSuccess').style.display = 'none';
+}
+
+function closeCheckout() {
+    const modal = document.getElementById('checkoutModal');
+    const overlay = document.getElementById('checkoutOverlay');
+    modal.classList.remove('open');
+    overlay.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 400);
+    document.body.style.overflow = '';
+}
+
+function buildCheckoutSummary() {
+    const el = document.getElementById('checkoutSummary');
+    if (!el) return;
+    const items = cart.map(item => {
+        const p = PRODUCTS.find(prod => prod.id === item.id);
+        if (!p) return '';
+        return `<div class="checkout-summary-item"><span>${escapeHtml(p.name)} x${item.qty}</span><span>${formatCurrency(p.price * item.qty)}</span></div>`;
+    }).join('');
+    el.innerHTML = `<h4>Resumo do Pedido</h4>${items}<div class="checkout-summary-total"><span>Total</span><span>${formatCurrency(getCartTotal())}</span></div>`;
+}
+
+function completeCheckout(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Processando... ⏳';
+    btn.disabled = true;
+
+    const orderData = {
+        id: 'MCC-' + Date.now(),
+        customer: {
+            name: sanitizeInput(document.getElementById('checkoutName').value),
+            email: sanitizeInput(document.getElementById('checkoutEmail').value),
+            phone: sanitizeInput(document.getElementById('checkoutPhone').value),
+            address: sanitizeInput(document.getElementById('checkoutAddress').value),
+            payment: sanitizeInput(document.getElementById('checkoutPayment').value)
+        },
+        items: cart.map(item => {
+            const p = PRODUCTS.find(prod => prod.id === item.id);
+            return { id: item.id, name: p ? escapeHtml(p.name) : '', qty: item.qty, price: p ? p.price : 0 };
+        }),
+        total: getCartTotal(),
+        date: new Date().toISOString()
+    };
+
+    const orders = JSON.parse(localStorage.getItem('mcc_orders') || '[]');
+    orders.push(orderData);
+    localStorage.setItem('mcc_orders', JSON.stringify(orders));
+
+    setTimeout(() => {
+        document.getElementById('checkoutForm').style.display = 'none';
+        document.getElementById('checkoutSuccess').style.display = 'block';
+        cart = [];
+        saveCart();
+        showToast(`🎉 Pedido ${orderData.id} confirmado!`, 'success', 5000);
+    }, 2000);
+}
+
+// ========================================
+// Initialization
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    initProductFilters();
+    updateCartBadge();
+    renderCartItems();
+
+    // Keyboard support for cart/checkout
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const cartDrawer = document.getElementById('cartDrawer');
+            const checkoutModal = document.getElementById('checkoutModal');
+            if (cartDrawer && cartDrawer.classList.contains('open')) closeCart();
+            if (checkoutModal && checkoutModal.classList.contains('open')) closeCheckout();
+        }
+    });
+});
+
